@@ -8,7 +8,7 @@ The project should be implemented using Java or Node.js. Feel free to use any 3r
 expected and the assignment will be assessed based on good programming practices and design.
 Please use GitHub or Bitbucket to publish your source code.
 
-##Формулировка от руководителя команды
+## Формулировка от руководителя команды
 Выбор технологий и какие именно функции вы будете внедрять полностью на вас. Только одно пожелание с нашей стороны не отягощать решение различными вариантами хранения объектов.  Используйте пожалуйста только in memory хранение объектов. 
 
 
