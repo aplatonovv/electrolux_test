@@ -16,7 +16,7 @@ Please use GitHub or Bitbucket to publish your source code.
 (прошу прощения что по-русски, но уже поздно и хочется спать)
 1. Принял решение сделать сервис, позволяющий регистрировать кастомные приборы. Исходил из такой концепции, что есть бэкенд с известным адресом, на котором могут регистрироваться все девайсы (стиралки, кофеварки и т.п.) по известному протоколу, а именно, они должны отправить запрос типа:
 
-curl -XPOST "<host>:8080/device/register" -H "Content-Type: application/json" --data '{"fields":{"turnedOn":"BOOL", "coffeeStrength": DOUBLE}, "commands": {"setTurnOn": {"value": DOUBLE}}}'
+curl -XPOST "host:8080/device/register" -H "Content-Type: application/json" --data '{"fields":{"turnedOn":"BOOL", "coffeeStrength": DOUBLE}, "commands": {"setTurnOn": {"value": DOUBLE}}}'
 
 в этом случае регистрируется некий девайс, у которого есть ряд присущих ему свойств (например наличие кофейных зерен в кофеварке и состояние вкл/выкл), а так же ряд ручек, которые можно у него дернуть, например "включить". В fields передается мапка имя-поля/тип (BOOL, DOUBLE, STRING, INT), в commands мапка имя-команды/маппка-аргументов.
 
@@ -39,10 +39,10 @@ curl -XGET "host:8080/device"
 по результату будет получен json, который содержит список всех устройств, их id и спеки, содержащие списки полей и функций с параметрами.
 
 3. Получить состояние конкретного девайса:
-curl -XGET "host:8080/device/device_id/state" 
+curl -XGET "host:8080/device/[device_id]/state" 
 
 4. Получить спеку конкретного девайса:
-curl -XGET "host:8080/device/device_id/description"
+curl -XGET "host:8080/device/[device_id]/description"
 
 5. Вызвать функцию девайса:
-curl -XGET "host:8080/device/device_id/command/<name>?[arg_name=value&...]"
+  curl -XGET "host:8080/device/[device_id]/command/<name>?[arg_name=value&...]"
